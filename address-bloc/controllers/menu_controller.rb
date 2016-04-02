@@ -92,8 +92,8 @@ class MenuController
     puts "Type an entry number: "
     entry_num = gets.chomp.to_i
 
-    if entry_num.to_i < @address_book.entries.count
-      puts @address_book.entries[entry_num]
+    if entry_num.to_i < address_book.entries.count
+      puts address_book.entries[entry_num]
       puts "\n\nType 'enter' to return to the main menu"
       enter = gets.chomp
       system "clear"
