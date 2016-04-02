@@ -91,9 +91,18 @@ class MenuController
     puts "View Entry by Number\n"
 
     print "Enter entry number: "
-    entry_num = gets.chomp
+    entry_num = gets.chomp.to_i
 
-    puts address_book.fetch(entry_num)
+    if entry_num < address_book.entries.length
+      system "clear"
+      address_book.entries.values_at(entry_num)
+      puts "\n\n"
+      entry_submenu(entry)
+    else
+      puts "#{entry_num} is not a valid input"
+      system "clear"
+      entry_submenu(entry)
+    end
   end
 
   def entry_submenu(entry)
