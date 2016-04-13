@@ -32,6 +32,7 @@ RSpec.describe AddressBook do
     end
   end
 
+<<<<<<< HEAD
   describe "#import_from_csv" do
     it "imports the correct number of entries" do
       book.import_from_csv("entries.csv")
@@ -39,4 +40,20 @@ RSpec.describe AddressBook do
       expect(book_size).to eq 5
     end
   end
+=======
+  describe "#remove_entry" do
+    it "calls the remove_entry method with correct arguments" do
+      allow_any_instance_of(AddressBook).to receive(:remove_entry).with(any_args)
+    end
+
+    it "removes a single entry from the address book" do
+      book = AddressBook.new
+      book.add_entry('Ada Lovelace','010.012.1815','august.king@lovelace.com')
+
+      book.remove_entry('Ada Lovelace','010.012.1815','august.king@lovelace.com')
+      expect(book.entries.size).to eq(0)
+    end
+  end
+
+>>>>>>> assignment-19
 end
