@@ -79,6 +79,33 @@ RSpec.describe AddressBook do
        entry_five = book.entries[4]
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
+   end
+
+   describe "#import_from_csv using 2nd file" do
+     it "imports 2nd csv file" do
+       # instructions here
+       book.import_from_csv("entries_2.csv")
+       book_size = book.entries.size
+       expect(book_size).to eq 3
+     end
+
+     it "imports the 1st entry in the 2nd file" do
+       book.import_from_csv("entries_2.csv")
+       entry_one = book.entries[0]
+       check_entry(entry_one,"Ann","555-555-0117","ann@googlemail.com")
+     end
+
+     it "imports the 2nd entry in the 2nd file" do
+       book.import_from_csv("entries_2.csv")
+       entry_two = book.entries[1]
+       check_entry(entry_two,"Max","555-555-0415","max@googlemail.com")
+     end
+
+     it "imports the 3rd entry in the 2nd file" do
+       book.import_from_csv("entries_2.csv")
+       entry_three = book.entries[2]
+       check_entry(entry_three,"Mazdeline","555-555-0235","maddy@googlemail.com")
+     end
   end
 
   describe "#remove_entry" do
@@ -94,5 +121,4 @@ RSpec.describe AddressBook do
       expect(book.entries.size).to eq(0)
     end
   end
-
 end
