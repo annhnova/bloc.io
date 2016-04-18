@@ -61,4 +61,9 @@ class AddressBook
       index += 1
     end
   end
+
+  def delete_all
+    entries.clear
+  end
+
 end

@@ -28,6 +28,7 @@ RSpec.describe AddressBook do
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       expect(book.entries.size).to eq(1)
     end
+
     it "adds the correct information to entries" do
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       new_entry = book.entries[0]
@@ -144,4 +145,11 @@ RSpec.describe AddressBook do
     end
   end
 
+  describe "#delete_all" do
+    it "removes all entries" do
+      book.import_from_csv("entries.csv")
+      book.delete_all
+      expect(book.entries.length).to eq 0
+    end
+  end
 end
